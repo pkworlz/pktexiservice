@@ -235,6 +235,16 @@
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Level1\Cab.cs" />
+    <Compile Include="Models\Level1\Ride.cs" />
+    <Compile Include="Models\Level2\Booking.cs" />
+    <Compile Include="Models\Level2\IsSelectedFor.cs" />
+    <Compile Include="Models\Level2\Owns.cs" />
+    <Compile Include="Models\Level2\PaysFor.cs" />
+    <Compile Include="Models\Level3\CabType.cs" />
+    <Compile Include="Models\Level3\Offer.cs" />
+    <Compile Include="Models\Level3\Payment.cs" />
+    <Compile Include="Models\Level3\Shift.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
