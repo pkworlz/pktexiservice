@@ -42,13 +42,22 @@ namespace pktexiservice.Controllers
         // POST: api/Template
         public IHttpActionResult Post(Cab cab)
         {
-            if (cab!=null)
+            try
             {
-                db.Cabs.Add(cab);
-                db.SaveChanges();
+                if (cab != null)
+                {
+                    db.Cabs.Add(cab);
+                    db.SaveChanges();
+                }
+
+                return Json("Cab Added");
             }
-            
-            return Json("Cab Added");
+            catch (Exception ex)
+            {
+
+                return Json(ex.Message);
+            }
+           
 
         }
 
@@ -70,6 +79,7 @@ namespace pktexiservice.Controllers
             try
             {
                 db.SaveChanges();
+                return Ok(cab);
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -83,7 +93,7 @@ namespace pktexiservice.Controllers
                 }
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            
 
         }
 
