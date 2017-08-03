@@ -13,7 +13,7 @@ namespace pktexiservice.Models.Level1
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public int Rating { get; set; }
-        public int Fare { get; set; }
+        public float Fare { get; set; }
         public string Distance { get; set; }
         public string Offer { get; set; }
     }

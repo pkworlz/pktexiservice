@@ -243,6 +243,10 @@
     <Compile Include="Migrations\201708031250541_addedCabInfo.Designer.cs">
       <DependentUpon>201708031250541_addedCabInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708031437296_changedFairDataTye.cs" />
+    <Compile Include="Migrations\201708031437296_changedFairDataTye.Designer.cs">
+      <DependentUpon>201708031437296_changedFairDataTye.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -341,6 +345,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201708031250541_addedCabInfo.resx">
       <DependentUpon>201708031250541_addedCabInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708031437296_changedFairDataTye.resx">
+      <DependentUpon>201708031437296_changedFairDataTye.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
