@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace pktexiservice.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Driver")]
     public class ValuesController : ApiController
     {
         // GET api/values
