@@ -10,6 +10,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Security;
+using pktexiservice.HelperClasses;
 
 namespace pktexiservice.Controllers
 {
@@ -24,13 +25,20 @@ namespace pktexiservice.Controllers
         /// *request must have .....?email=driver@company.com
         /// *admin can auth using access_token
         /// </summary>
+        
         ApplicationDbContext db = new ApplicationDbContext();
+        
+        
+        /// <summary>
+        /// Here admin ca see all the drivers 
+        /// </summary>
+        /// <returns>list of drivers</returns>
         // GET: api/AddDriver
         public IHttpActionResult Get()
         {
               try
                 {
-                    var Drivers = GetUsersInRole("Driver");
+                    var Drivers = Helper.GetUsersInRole("Driver");
                     List<string> driverNames = new List<string>();
                     foreach (var item in Drivers)
                     {
@@ -44,43 +52,45 @@ namespace pktexiservice.Controllers
                 }
            
         }
-        public List<ApplicationUser> GetUsersInRole(string roleName)
-        {
-            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
-            var role = roleManager.FindByName(roleName).Users.First();
-            var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
-
-            var usersInRole = UserManager.Users.Where(u => u.Roles.Select(r => r.RoleId).Contains(role.RoleId)).ToList();
-            return usersInRole;
-        }
+       
         // GET: api/AddDriver/5
-        public string Get(int id)
-        {
-            return "value";
-        }
+        //public string Get(int id)
+        //{
+        //    return "value";
+        //}
 
+        /// <summary>
+        /// Admin can add existing user to driver by there email.
+        /// It removes user from customer role.
+        /// </summary>
+        /// <param name="email">email of user</param>
+        /// <returns>message driver added with driver email</returns>
         // POST: api/AddDriver
-        public  IHttpActionResult Post(string email)
+        public IHttpActionResult Post(string email)
         {
             var UserManager =  new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
             var User = UserManager.FindByEmail(email);
+            UserManager.RemoveFromRole(User.Id, "Customer");
             UserManager.AddToRole(User.Id, "Driver");
 
-            return Json(User.Email + " Driver Added"); 
+            return Json(User.Email + " : Driver Added"); 
         }
 
-        // PUT: api/AddDriver/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
+      
 
+         /// <summary>
+         /// This removes driver and add to customer role
+         /// </summary>
+         /// <param name="email">email of registered driver</param>
+         /// <returns>message driver removed with driver email</returns>
         // DELETE: api/AddDriver/5
         public IHttpActionResult Delete(string email)
         {
             var UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(db));
             var User = UserManager.FindByEmail(email);
             UserManager.RemoveFromRole(User.Id, "Driver");
-            return Json(User.Email+" Driver Removed");
+            UserManager.AddToRole(User.Id, "Customer");
+            return Json(User.Email+" : Driver Removed");
         }
 
        

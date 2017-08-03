@@ -331,7 +331,8 @@ namespace pktexiservice.Controllers
             var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
-
+            //1-admin,2-driver,3-customer
+            UserManager.AddToRole(user.Id, "Customer");
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
