@@ -13,7 +13,25 @@ namespace pktexiservice.Controllers
 {
     public class CabsController : ApiController
     {
-        TexiDbContext db = new TexiDbContext();
+        /// <summary>
+        /// -get all cabs.
+        /// -add new cab.
+        /// -edit cab data.
+        /// -delete cab.
+        /// ----sample cab req----
+        /* {
+	          "id":2,
+              "RegNo": 0,
+              "RegNo": 0,
+              "Name": "swift desire",
+              "SeatCapacity": 4,
+              "Color": "white",
+              "Model": "desire",
+              "Type": 1
+            }   
+        */
+        /// </summary>
+    TexiDbContext db = new TexiDbContext();
         // GET: api/Template
         public IHttpActionResult Get()
         {

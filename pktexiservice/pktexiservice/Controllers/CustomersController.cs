@@ -11,8 +11,12 @@ using System.Web.Http;
 
 namespace pktexiservice.Controllers
 {
+    [Authorize(Roles ="Admin")]
     public class CustomersController : ApiController
     {
+        /// <summary>
+        /// manages customers add remove role etc.. by admin..
+        /// </summary>
 
         ApplicationDbContext db = new ApplicationDbContext();
 

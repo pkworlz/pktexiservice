@@ -10,5 +10,6 @@ namespace pktexiservice.Models.Level2
         public int id { get; set; }
         public int DriverId { get; set; }
         public int CabId { get; set; }
+        public bool isActive { get; set; }
     }
 }
