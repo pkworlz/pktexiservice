@@ -7,6 +7,7 @@ namespace pktexiservice.Models.dynamic
 {
     public class DriverStatus
     {
+        public int id { get; set; }
         public string DriverId { get; set; }
         public double Lat { get; set; }
         public double Lng { get; set; }

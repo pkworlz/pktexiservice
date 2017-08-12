@@ -232,6 +232,7 @@
     <Compile Include="Controllers\AddDriverController.cs" />
     <Compile Include="Controllers\CabsController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\DriverOnlineStatusController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TemplateController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -255,10 +256,19 @@
     <Compile Include="Migrations\201708091041228_addedDoubleInlatLngNullable.Designer.cs">
       <DependentUpon>201708091041228_addedDoubleInlatLngNullable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201708091144448_addedIdToDriverStatus.cs" />
+    <Compile Include="Migrations\201708091144448_addedIdToDriverStatus.Designer.cs">
+      <DependentUpon>201708091144448_addedIdToDriverStatus.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201708100725295_driverStatus.cs" />
+    <Compile Include="Migrations\201708100725295_driverStatus.Designer.cs">
+      <DependentUpon>201708100725295_driverStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\dynamic\DriverStatus.cs" />
+    <Compile Include="Models\dynamic\RideRequest.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Level1\Cab.cs" />
     <Compile Include="Models\Level1\Ride.cs" />
@@ -363,6 +373,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708091041228_addedDoubleInlatLngNullable.resx">
       <DependentUpon>201708091041228_addedDoubleInlatLngNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708091144448_addedIdToDriverStatus.resx">
+      <DependentUpon>201708091144448_addedIdToDriverStatus.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201708100725295_driverStatus.resx">
+      <DependentUpon>201708100725295_driverStatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
